@@ -12,30 +12,51 @@ export class ApiService {
     }
 
     async findProduct(id: string) {
-        const response = await lastValueFrom(this.httpService.get(`URL_MICROSSERVICO/${id}`));
+        const response = await lastValueFrom(this.httpService.get('URL_MICROSSERVICO/product/${id}'));
         return response.data;
     }
 
-}
+    async findProducts() {
+        const response = await lastValueFrom(this.httpService.get('URL_MICROSSERVICO/user'));
+        return response.data;
+    }
 
-@Injectable()
-export class UserService {
-    constructor(private httpService: HttpService) { }
+    async updateProduct(userData: any) {
+        const response = await lastValueFrom(this.httpService.put('URL_MICROSSERVICO/product', userData));
+        return response.data;
+    }
+
+    async deleteProduct(userData: any) {
+        const response = await lastValueFrom(this.httpService.delete('URL_MICROSSERVICO/product', userData));
+        return response.data;
+    }
 
     async createUser(userData: any) {
         const response = await lastValueFrom(this.httpService.post('URL_MICROSSERVICO/user', userData));
         return response.data;
     }
 
-    async findUser(id: string) {
-        const response = await lastValueFrom(this.httpService.get(`URL_MICROSSERVICO/user/${id}`));
+    async findUsers() {
+        const response = await lastValueFrom(this.httpService.get('URL_MICROSSERVICO/user'));
         return response.data;
     }
-}
 
-@Injectable()
-export class OrderService {
-    constructor(private httpService: HttpService) { }
+
+
+    async findUser(id: string) {
+        const response = await lastValueFrom(this.httpService.get('URL_MICROSSERVICO/user/${id}'));
+        return response.data;
+    }
+
+    async updateUser(userData: any) {
+        const response = await lastValueFrom(this.httpService.put('URL_MICROSSERVICO/user', userData));
+        return response.data;
+    }
+
+    async deleteUser(userData: any) {
+        const response = await lastValueFrom(this.httpService.delete('URL_MICROSSERVICO/user', userData));
+        return response.data;
+    }
 
     async createOrder(orderData: any) {
         const response = await lastValueFrom(this.httpService.post('URL_MICROSSERVICO/order', orderData));
@@ -43,7 +64,7 @@ export class OrderService {
     }
 
     async findOrder(id: string) {
-        const response = await lastValueFrom(this.httpService.get(`URL_MICROSSERVICO/order/${id}`));
+        const response = await lastValueFrom(this.httpService.get('URL_MICROSSERVICO/order/${id}'));
         return response.data;
     }
 }
