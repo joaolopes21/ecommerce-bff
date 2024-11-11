@@ -63,8 +63,5 @@ export class ApiService {
         return response.data;
     }
 
-    async findOrder(id: string) {
-        const response = await lastValueFrom(this.httpService.get('https://microcontainer.livelyforest-7ff538b4.brazilsouth.azurecontainerapps.io/order/${id}'));
-        return response.data;
-    }
+
 }

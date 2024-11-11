@@ -70,8 +70,4 @@ export class OrderController {
         return await this.apiService.createOrder(orderData);
     }
 
-    @Get(':id')
-    async getOrder(@Param('id') id: string) {
-        return await this.apiService.findOrder(id);
-    }
 }
